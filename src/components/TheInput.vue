@@ -20,9 +20,9 @@ const text = ref('')
   />
   <!-- <input
     id="input"
-    :value="text"
-    type="text"
+    v-model="modelValue"
     v-bind="$attrs"
+    type="text"
     p="x-4 y-2"
     w="250px"
     text="center"
