@@ -163,6 +163,9 @@ devDependencies:
   stylelint:
     specifier: ^15.10.3
     version: registry.npmmirror.com/stylelint@15.10.3(typescript@5.2.2)
+  stylelint-config-html:
+    specifier: ^1.1.0
+    version: 1.1.0(postcss-html@1.5.0)(stylelint@15.10.3)
   stylelint-config-property-sort-order-smacss:
     specifier: ^9.1.0
     version: registry.npmmirror.com/stylelint-config-property-sort-order-smacss@9.1.0(stylelint@15.10.3)
@@ -9179,6 +9182,17 @@ packages:
       acorn: 8.10.0
     dev: true
 
+  /stylelint-config-html@1.1.0(postcss-html@1.5.0)(stylelint@15.10.3):
+    resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
+    engines: {node: ^12 || >=14}
+    peerDependencies:
+      postcss-html: ^1.0.0
+      stylelint: '>=14.0.0'
+    dependencies:
+      postcss-html: registry.npmmirror.com/postcss-html@1.5.0
+      stylelint: registry.npmmirror.com/stylelint@15.10.3(typescript@5.2.2)
+    dev: true
+
   /sucrase@3.34.0:
     resolution: {integrity: sha512-70/LQEZ07TEcxiU2dz51FKaE6hCTWC6vr7FOk3Gr0U60C3shtAN+H+BFr9XlYe5xqf3RA8nrc+VIwzCfnxuXJw==}
     engines: {node: '>=8'}
@@ -16998,20 +17012,6 @@ packages:
     version: 0.1.0
     dev: true
 
-  registry.npmmirror.com/stylelint-config-html@1.1.0(postcss-html@1.5.0)(stylelint@15.10.3):
-    resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/stylelint-config-html/-/stylelint-config-html-1.1.0.tgz}
-    id: registry.npmmirror.com/stylelint-config-html/1.1.0
-    name: stylelint-config-html
-    version: 1.1.0
-    engines: {node: ^12 || >=14}
-    peerDependencies:
-      postcss-html: ^1.0.0
-      stylelint: '>=14.0.0'
-    dependencies:
-      postcss-html: registry.npmmirror.com/postcss-html@1.5.0
-      stylelint: registry.npmmirror.com/stylelint@15.10.3(typescript@5.2.2)
-    dev: true
-
   registry.npmmirror.com/stylelint-config-property-sort-order-smacss@9.1.0(stylelint@15.10.3):
     resolution: {integrity: sha512-TijYeDoDgHAFjpn9NnziQrmUCGrm2AM4e1HzsdI2mCWBRkQRuewc343YqDwdFgQ5eHoMZ3JRL02i72W3vktuDA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/stylelint-config-property-sort-order-smacss/-/stylelint-config-property-sort-order-smacss-9.1.0.tgz}
     id: registry.npmmirror.com/stylelint-config-property-sort-order-smacss/9.1.0
@@ -17057,7 +17057,7 @@ packages:
       postcss-html: registry.npmmirror.com/postcss-html@1.5.0
       semver: registry.npmmirror.com/semver@7.5.4
       stylelint: registry.npmmirror.com/stylelint@15.10.3(typescript@5.2.2)
-      stylelint-config-html: registry.npmmirror.com/stylelint-config-html@1.1.0(postcss-html@1.5.0)(stylelint@15.10.3)
+      stylelint-config-html: 1.1.0(postcss-html@1.5.0)(stylelint@15.10.3)
       stylelint-config-recommended: registry.npmmirror.com/stylelint-config-recommended@13.0.0(stylelint@15.10.3)
     dev: true
 
