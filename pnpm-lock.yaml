@@ -11,7 +11,7 @@ overrides:
 dependencies:
   '@astrojs/vue':
     specifier: ^3.0.1
-    version: registry.npmmirror.com/@astrojs/vue@3.0.4(@babel/core@7.23.3)(astro@3.6.0)(vite@5.0.2)(vue@3.3.9)
+    version: registry.npmmirror.com/@astrojs/vue@3.0.4(@babel/core@7.23.3)(astro@3.6.1)(vite@5.0.2)(vue@3.3.9)
   '@types/node':
     specifier: 18.6.3
     version: registry.npmmirror.com/@types/node@18.6.3
@@ -32,7 +32,7 @@ dependencies:
     version: registry.npmmirror.com/@vueuse/head@2.0.0(vue@3.3.9)
   astro:
     specifier: ^3.2.3
-    version: registry.npmmirror.com/astro@3.6.0(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
+    version: registry.npmmirror.com/astro@3.6.1(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
   dprint:
     specifier: 0.41.0
     version: registry.npmmirror.com/dprint@0.41.0
@@ -429,7 +429,7 @@ packages:
       - typescript
     dev: true
 
-  registry.npmmirror.com/@astrojs/markdown-remark@3.5.0(astro@3.6.0):
+  registry.npmmirror.com/@astrojs/markdown-remark@3.5.0(astro@3.6.1):
     resolution: {integrity: sha512-q7vdIqzYhxpsfghg2YmkmSXCfp4w7lBTYP+SSHw89wVhC5Riltr3u8w2otBRxNLSByNi+ht/gGkFC23Shetytw==, tarball: https://registry.npmmirror.com/@astrojs/markdown-remark/-/markdown-remark-3.5.0.tgz}
     id: registry.npmmirror.com/@astrojs/markdown-remark/3.5.0
     name: '@astrojs/markdown-remark'
@@ -438,7 +438,7 @@ packages:
       astro: ^3.0.0
     dependencies:
       '@astrojs/prism': registry.npmmirror.com/@astrojs/prism@3.0.0
-      astro: registry.npmmirror.com/astro@3.6.0(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
+      astro: registry.npmmirror.com/astro@3.6.1(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
       github-slugger: registry.npmmirror.com/github-slugger@2.0.0
       import-meta-resolve: registry.npmmirror.com/import-meta-resolve@3.1.1
       mdast-util-definitions: registry.npmmirror.com/mdast-util-definitions@6.0.0
@@ -482,7 +482,7 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmmirror.com/@astrojs/vue@3.0.4(@babel/core@7.23.3)(astro@3.6.0)(vite@5.0.2)(vue@3.3.9):
+  registry.npmmirror.com/@astrojs/vue@3.0.4(@babel/core@7.23.3)(astro@3.6.1)(vite@5.0.2)(vue@3.3.9):
     resolution: {integrity: sha512-+kuONslRcfXbwlZOwdl+9XYJ0HKfPQ8SHnmk4Uf3ZNscJfjptob3z0mrIaCRqIgNNWJHsY2xLZovishGQ+lAow==, tarball: https://registry.npmmirror.com/@astrojs/vue/-/vue-3.0.4.tgz}
     id: registry.npmmirror.com/@astrojs/vue/3.0.4
     name: '@astrojs/vue'
@@ -496,7 +496,7 @@ packages:
       '@vitejs/plugin-vue-jsx': registry.npmmirror.com/@vitejs/plugin-vue-jsx@3.1.0(vite@5.0.2)(vue@3.3.9)
       '@vue/babel-plugin-jsx': registry.npmmirror.com/@vue/babel-plugin-jsx@1.1.5(@babel/core@7.23.3)
       '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc@3.3.9
-      astro: registry.npmmirror.com/astro@3.6.0(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
+      astro: registry.npmmirror.com/astro@3.6.1(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2)
       vue: registry.npmmirror.com/vue@3.3.9(typescript@5.3.2)
     transitivePeerDependencies:
       - '@babel/core'
@@ -6100,17 +6100,17 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/astro@3.6.0(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2):
-    resolution: {integrity: sha512-mRDzWXsaSBaN+juvunO4Ukq8HQ1WqrULlcZfKzaKEZEXvxiWmMKN9tH0onQH0EaQ7+f4nNR4VN9kYTM26uMrXQ==, tarball: https://registry.npmmirror.com/astro/-/astro-3.6.0.tgz}
-    id: registry.npmmirror.com/astro/3.6.0
+  registry.npmmirror.com/astro@3.6.1(@types/node@18.6.3)(sass@1.69.5)(typescript@5.3.2):
+    resolution: {integrity: sha512-dCpiJAJYfVb2dLDuHcJLZyCM3Ha529Bou7RZtcc4agu8aH1ybEkSXJbV3bCLoL1aDgvp/cdf7qzDkZwkL+2rRg==, tarball: https://registry.npmmirror.com/astro/-/astro-3.6.1.tgz}
+    id: registry.npmmirror.com/astro/3.6.1
     name: astro
-    version: 3.6.0
+    version: 3.6.1
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': registry.npmmirror.com/@astrojs/compiler@2.3.2
       '@astrojs/internal-helpers': registry.npmmirror.com/@astrojs/internal-helpers@0.2.1
-      '@astrojs/markdown-remark': registry.npmmirror.com/@astrojs/markdown-remark@3.5.0(astro@3.6.0)
+      '@astrojs/markdown-remark': registry.npmmirror.com/@astrojs/markdown-remark@3.5.0(astro@3.6.1)
       '@astrojs/telemetry': registry.npmmirror.com/@astrojs/telemetry@3.0.4
       '@babel/core': registry.npmmirror.com/@babel/core@7.23.3
       '@babel/generator': registry.npmmirror.com/@babel/generator@7.23.4
