@@ -3,6 +3,8 @@ import { ofetch } from 'ofetch'
 
 import type { Article } from '../pages/articles/types'
 
+export { readItems } from '@directus/sdk'
+
 interface Schema {
   article: Article[]
 }

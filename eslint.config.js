@@ -19,7 +19,11 @@ export default [
     ignores: ['.astro', 'src/env.d.ts', 'cypress'],
   },
   ...config(),
-
+  // {
+  //   rules: {
+  //     'arrow-parens': 'off',
+  //   },
+  // },
   // Astro
   ...compat.extends('plugin:astro/recommended'),
   {

@@ -1,15 +1,14 @@
 ---
-import { readItems } from '@directus/sdk'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'
-import { getDirectusClient } from '../../utils/get-directus-client'
+import { getDirectusClient, readItems } from '../../utils/get-directus-client'
 
 export const getStaticPaths = (async function () {
   const client = getDirectusClient()
 
   const allArticles = await client.request(readItems('article'))
-  return allArticles.map((item) => ({
+  return allArticles.map(item => ({
     params: { slug: item.slug },
     props: item,
   }))
