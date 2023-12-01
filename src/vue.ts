@@ -2,6 +2,7 @@ import 'uno.css'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 
+// import 'element-plus/dist/index.css'
 import type { App } from 'vue'
 
 import type { UserModule } from './types'

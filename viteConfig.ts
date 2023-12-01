@@ -5,14 +5,12 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 // import Preview from 'vite-plugin-vue-component-preview'
 // Cannot find module:
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
-import VueRouter from 'unplugin-vue-router/vite'
 import Inspect from 'vite-plugin-inspect'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Inspector from 'vite-plugin-vue-inspector'
-import Layouts from 'vite-plugin-vue-layouts'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 import generateSitemap from 'vite-ssg-sitemap'
 
@@ -26,45 +24,22 @@ export default {
     },
     // Fix issue when component libraries in the workspace are using different versions of deps like Vue
     // See: https://github.com/vuejs/core/issues/4344#issuecomment-1023220225
-    dedupe: ['vue', 'vue-i18n', 'vue-router'],
+    dedupe: ['vue', 'vue-i18n'],
   },
 
   plugins: [
-    // VueMacros({
-    //   plugins: {
-    //     vue: Vue({
-    //       include: [/\.vue$/, /\.md$/],
-    //     }),
-    //   },
-    // }),
-
-    // // https://github.com/posva/unplugin-vue-router
-    VueRouter({
-      extensions: ['.vue'],
-      exclude: ['**/components/*'],
-      dts: 'src/types/typed-router.d.ts',
-    }),
-
-    // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-    Layouts(),
-
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [
         'vue',
-        // 'vue-router',
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
-        VueRouterAutoImports,
-        {
-          // add any other imports you were relying on
-          'vue-router/auto': ['useLink'],
-        },
       ],
       dts: 'src/types/auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores'],
       vueTemplate: true,
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -74,6 +49,7 @@ export default {
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'src/types/components.d.ts',
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://github.com/unocss/unocss
@@ -152,13 +128,6 @@ export default {
       generateSitemap()
     },
   },
-
-  ssr: {
-    // TODO: workaround until they support native ESM
-    noExternal: ['workbox-window', /vue-i18n/],
-  },
+  // https://github.com/nuxt/nuxt/issues/12215
+  ssr: { noExternal: ['element-plus', 'workbox-window', /vue-i18n/] },
 }
-
-// export default  {
-//   plugins: [VitePWA()],
-// }
