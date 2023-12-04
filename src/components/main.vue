@@ -1,9 +1,13 @@
-<script setup></script>
+<script setup>
+import { getIntegrationsData } from '~/service/integrations'
+
+const data = await getIntegrationsData()
+</script>
 
 <template>
   <div class="main">
     <el-card class="card">
-      dfdsf
+      <pre>{{ data }}</pre>
     </el-card>
   </div>
 </template>
