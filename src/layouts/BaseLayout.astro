@@ -1,9 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
 
-import Footer from '~/components/Footer.astro'
-import Navbar from '~/components/Navbar.astro'
-
 interface Props {
   pageTitle?: string
   description?: string
@@ -11,8 +8,6 @@ interface Props {
   withoutFooter?: boolean
 }
 const {
-  withoutNavbar = false,
-  withoutFooter = false,
   pageTitle: title = 'Astro Starter Template',
   description = 'https://github.com/daotl/astro-starter',
 } = Astro.props
@@ -36,10 +31,6 @@ const {
   </head>
 
   <body class="min-h-screen dark:bg-gray-400 dark:text-white">
-    {!withoutNavbar && <Navbar />}
-
     <slot />
-
-    {!withoutFooter && <Footer />}
   </body>
 </html>
