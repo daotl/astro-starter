@@ -1,0 +1,30 @@
+---
+import type {
+  GetStaticPaths,
+  InferGetStaticParamsType,
+} from 'astro'
+
+import BaseMain from '~/components/main.vue'
+import { getIntegrationsData } from '~/service/integrations'
+import { genClassificationByTag } from '~/utils/integration'
+
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export const getStaticPaths = (async function () {
+  const integrations = await getIntegrationsData()
+  const data = genClassificationByTag(integrations)
+
+  return Object.entries(data).map(([k, v]) => ({
+    params: { integration: k },
+    props: { value: v },
+  }))
+}) satisfies GetStaticPaths
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+// type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { integration } = Astro.params as Params
+---
+<BaseLayout>
+  <BaseMain client:visible integration={integration} />
+</BaseLayout>

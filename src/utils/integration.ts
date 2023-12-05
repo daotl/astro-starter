@@ -13,3 +13,10 @@ export function genClassificationByTag(data: Integrations) {
     return pre
   }, {} as IntegrationByTags)
 }
+
+// eslint-disable-next-line import/no-mutable-exports
+export let searchIntegrations = ''
+
+export function changeSearchIntegrations(str: string) {
+  searchIntegrations = str
+}
