@@ -64,5 +64,6 @@
     "json",
     "jsonc",
     "yaml"
-  ]
+  ],
+  "editor.detectIndentation": false
 }
