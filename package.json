@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "nx exec -- astro check && astro build",
-    "test:e2e": "cypress open",
-    "typecheck": "nx exec -- vue-tsc --noEmit"
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@astrojs/preact": "^3.0.1",
