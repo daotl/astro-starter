@@ -17,6 +17,13 @@ export default config({
   unocss: true,
 }, {
   ignores: ['cypress', '.nx', 'nx.json', '**/*.md', 'tsconfig.*', '.astro', 'src/env.d.ts'],
+}, {
+  languageOptions: {
+    parserOptions: {
+      project: ['tsconfig.eslint.json'],
+      extraFileExtensions: ['.vue'],
+    },
+  },
 }, ...compat.extends('plugin:astro/recommended'), {
   files: ['**/*.astro'],
   // Parse the script in `.astro` as TypeScript by adding the following configuration.
@@ -35,11 +42,5 @@ export default config({
     // `style/jsx-*` that conflict with Astro template
     'style/jsx-indent': 'off',
     'style/jsx-one-expression-per-line': 'off',
-  },
-}, {
-  languageOptions: {
-    parserOptions: {
-      project: ['tsconfig.eslint.json'],
-    },
   },
 })
