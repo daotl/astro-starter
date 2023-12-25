@@ -1,7 +1,9 @@
 import path from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import vue from '@vitejs/plugin-vue'
 // import Preview from 'vite-plugin-vue-component-preview'
 // Cannot find module:
 import AutoImport from 'unplugin-auto-import/vite'
@@ -28,6 +30,7 @@ export default {
   },
 
   plugins: [
+    ...(process.env.VITEST === 'true' ? [vue()] : []),
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [

@@ -1,5 +1,5 @@
 {
-  "extends": "@daotl/tsconfig/vue.json",
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "preserve",
