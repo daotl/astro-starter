@@ -1,0 +1,61 @@
+---
+import Menu from '~/components/Menu.vue';
+---
+
+<div class="root">
+  <div class="plural-page-header">
+    <div class="jGxyZq absolute"></div>
+    <svg class="hide" xmlns="http://www.w3.org/2000/svg">
+      <filter id="svg-darken-filter" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          id="svg-darken-filter-matrix"
+          type="matrix"
+          values="0.220  0.000 -0.030  0.000  0.070  0.000  0.220 -0.050  0.000  0.070  0.000  0.000  0.220  0.000  0.080   0.000  0.000  0.000  1.000  0.500"
+        >
+        </feColorMatrix>
+      </filter>
+    </svg>
+    <Menu client:visible class="menu" />
+  </div>
+</div>
+
+<style lang="scss">
+  .root {
+    .plural-page-header {
+      .jGxyZq {
+        width: 100%;
+        inset: -10px 0px 0px;
+        transition: all 0.2s ease-out 0s;
+        background: red;
+        background-color: transparent;
+        backdrop-filter: blur(7.5px) url(#svg-darken-filter);
+      }
+      .hide {
+        display: none;
+      }
+    }
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // const tl = gsap.timeline()
+  gsap.fromTo(
+    ".jGxyZq",
+    { height: "0" },
+    {
+      scrollTrigger: {
+        trigger: ".menu",
+        start: "top 0.1%",
+        end: "+=80px",
+        // markers: true,
+        scrub: true,
+      },
+      height: "80px",
+      translateY: "0px",
+    }
+  );
+</script>
