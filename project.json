@@ -1,0 +1,19 @@
+{
+  "name": "astro",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": ".",
+  "targets": {
+    "serve": {},
+    "preview": {},
+    "test": {
+      "options": {
+        "reportsDirectory": "../coverage"
+      }
+    },
+    "lint": {},
+    "eslint": {},
+    "stylelint": {},
+    "typecheck": {}
+  },
+  "tags": []
+}
