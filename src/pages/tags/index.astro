@@ -1,12 +1,14 @@
 ---
-import { getCollection } from 'astro:content'
 import { fade, ViewTransitions } from 'astro:transitions'
 
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getDirectusClient, readItems } from '../../utils/get-directus-client'
 
-const allArticles = await getCollection('articles')
+const client = getDirectusClient()
+
+const allArticles = await client.request(readItems('article'))
 const tags = [
-  ...new Set(allArticles.map(article => article.data.tags).flat()),
+  ...new Set(allArticles.map(article => article.tags).flat()),
 ]
 const pageTitle = 'Tag Index';
 ---

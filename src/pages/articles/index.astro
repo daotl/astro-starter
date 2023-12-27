@@ -11,6 +11,7 @@ const allArticles = await client.request(readItems('article'));
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <div>{JSON.stringify(allArticles)}</div>
   <h1 class="pt-[1em] text-32px color-red text-center">Article list</h1>
   <br />
   <div class="flex justify-center">
