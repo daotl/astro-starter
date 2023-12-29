@@ -82,7 +82,8 @@
         "{options.reportsDirectory}"
       ],
       "options": {
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "config": "{projectRoot}/viteConfig.ts"
       },
       "inputs": [
         "{projectRoot}/src/**/*.js",
