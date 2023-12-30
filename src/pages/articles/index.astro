@@ -3,6 +3,8 @@ import ArticleListItem from '../../components/ArticleListItem.astro'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getDirectusClient, readItems } from '../../utils/get-directus-client'
 
+export const prerender = false
+
 const pageTitle = 'Article List'
 
 const client = getDirectusClient()

@@ -4,6 +4,7 @@ import { fade, ViewTransitions } from 'astro:transitions'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getDirectusClient, readItems } from '../../utils/get-directus-client'
 
+export const prerender = false
 const client = getDirectusClient()
 
 const allArticles = await client.request(readItems('article'))

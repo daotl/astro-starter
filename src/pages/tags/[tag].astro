@@ -10,6 +10,7 @@ import ArticleListItem from '../../components/ArticleListItem.astro'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getDirectusClient, readItems } from '../../utils/get-directus-client'
 
+export const prerender = false
 export const getStaticPaths = (async function () {
   const client = getDirectusClient()
   const allArticles = await client.request(readItems('article'))
