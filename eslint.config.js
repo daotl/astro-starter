@@ -24,7 +24,7 @@ export default config({
       extraFileExtensions: ['.vue'],
     },
   },
-}, [...compat.extends('plugin:astro/recommended')], {
+}, ...compat.extends('plugin:astro/recommended'), {
   files: ['**/*.astro'],
   // Parse the script in `.astro` as TypeScript by adding the following configuration.
   // It's the setting you need when using TypeScript.
