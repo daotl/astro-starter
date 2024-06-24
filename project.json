@@ -7,13 +7,12 @@
     "preview": {},
     "test": {
       "options": {
-        "reportsDirectory": "../coverage"
+        "coverage.reportsDirectory": "./coverage"
       }
     },
     "lint": {},
     "eslint": {},
-    "stylelint": {},
-    "typecheck": {}
+    "stylelint": {}
   },
   "tags": []
 }

@@ -118,6 +118,9 @@ export default {
   test: {
     include: ['test/**/*.test.ts'],
     environment: 'jsdom',
+    coverage: {
+      enabled: true,
+    },
   },
 
   // https://github.com/antfu/vite-ssg
