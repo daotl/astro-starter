@@ -1,0 +1,103 @@
+---
+
+---
+
+<!-- <div class="h-1000px pt-450px"> -->
+  <!-- start end -->
+  <!-- <div class="w-50px h-50px bg-purple mb-100px a"></div>
+  <div class="w-50px h-50px bg-green mb-100px b"></div>
+  <div class="w-50px h-50px bg-yellow mb-100px c"></div> -->
+
+  <!-- pinning -->
+  <!-- <div class="orange bg-orange w-400px h-400px"></div>
+    <div class="orange bg-purple w-400px h-400px"></div>
+    <div class="orange bg-green w-400px h-400px"></div> -->
+
+  <!-- snapping -->
+  <div class="mt-100px overflow-scroll container" style="white-space: nowrap;">
+    <section class="orange panel inline-block bg-orange h-400px w-600px">1</section>
+    <section class="panel purple inline-block bg-purple h-400px w-600px">2</section>
+    <section class="panel green inline-block bg-green h-400px w-600px">3</section>
+  </div>
+<!-- </div> -->
+
+<style>
+  .line {
+    width: 80%;
+    height: 8px;
+    position: relative;
+    /* display: inline-block; */
+    background-color: rgba(255, 255, 255, 1);
+  }
+</style>
+
+<script>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger)
+
+// start end
+// gsap.to(".c", {
+//   scrollTrigger: {
+//     trigger: '.c',
+//     start: 'top 60%', // 动画触发的时机    trigger元素顶部(start)到达scroller(默认是视口)的百分之60(scroller-start)就触发动画
+//     end: 'bottom 100px', // 动画结束时机 trigger元素底部（end）到达scroller(默认是视口)的100px时(scroller-end)结束动画
+//     // end: '+=300', // 相当于 scroller-end在视口高度一半位置 end在scroller-end往下多300px的位置
+//     markers: true, // 添加开发过程中start scroller-start end scroller-end标记
+//     toggleActions: "restart pause reverse pause", // 进入视口  离开视口  滚回视口  onLeaveBack
+//     scrub: true, // 回滚动画也会回退 设为number 比如3的话代表3秒内跟上滚动条（滚动条不动了但是动画会缓慢停止的效果）
+//     // pin: true,
+//   },
+//   x: 1000,
+//   // 旋转一圈的度数
+//   rotation: 360,
+//   duration: 4
+// })
+
+//   // 当a的顶部到达视口的50px位置时，b动画触发。当c的底部到达视口高度的80%时，b动画结束
+//   gsap.to(".b", {
+//   scrollTrigger: {
+//     trigger: '.a',
+//     start: 'top 50px',
+//     endTrigger: '.c',
+//     end: 'bottom 80%',
+//     toggleActions: "restart pause reverse pause",
+//   },
+//   x: 1000,
+//   rotation: 360,
+//   duration: 4
+// })
+
+// slide-in panels  13.10 pinning??????????????
+// gsap.defaults({ ease: "none", duration: 2 });
+
+// const tl = gsap.timeline();
+// tl.from(".orange", { xPercent: -100 })
+//   .from(".purple", { xPercent: 200 })
+//   .from(".green", { yPercent: -100 });
+
+// ScrollTrigger.create({
+//   trigger: '.orange',
+//   start: 'top 300px',
+//   end: '+=300px',
+//   pin: true,
+//   markers: true,
+// })
+
+// snapping
+const sections = gsap.utils.toArray('.panel')
+
+gsap.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.container',
+    pin: true, // 激活时固定触发器元件
+    scrub: 1,
+    snap: 1 / (sections.length - 1), // 停止滚动后停留在特定的进度值
+    // base vertical scrolling on how wide the container is so it feels more natural.
+    end: '+=3500',
+  },
+})
+</script>

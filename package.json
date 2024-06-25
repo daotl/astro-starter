@@ -20,6 +20,7 @@
     "astro": "^4.4.0",
     "dprint": "0.41.0",
     "element-plus": "2.7.5",
+    "gsap": "^3.12.5",
     "jsdom": "^24.1.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
