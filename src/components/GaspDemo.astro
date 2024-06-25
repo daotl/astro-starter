@@ -168,7 +168,8 @@ import GsapHeader from './GsapHeader.astro';
                                                                                 >Awwwards
                                                                                 </a
           >. For some of our favorites, check out <a
-            href="https://greensock.com/showcase/">our showcase
+            href="https://greensock.com/showcase/"
+                                                  >our showcase
                                                   </a
           >.
         </p>
@@ -393,185 +394,186 @@ import GsapHeader from './GsapHeader.astro';
 </style>
 
 <script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/all";
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-  gsap.registerPlugin(ScrollTrigger);
-  // animation1
-  const tl = gsap.timeline();
-  const czSDRGTrigger = {
-    trigger: ".fbVvgv",
-    start: "top 80%",
-    end: "bottom top",
-    scrub: true,
-  };
-  const czSDRGTo = {
+gsap.registerPlugin(ScrollTrigger)
+// animation1
+const tl = gsap.timeline()
+const czSDRGTrigger = {
+  trigger: '.fbVvgv',
+  start: 'top 80%',
+  end: 'bottom top',
+  scrub: true,
+}
+const czSDRGTo = {
+  scrollTrigger: czSDRGTrigger,
+  opacity: 1,
+  transform: 'none',
+  duration: 2,
+}
+
+tl.fromTo(
+  '.heroImg1',
+  {
+    translateY: '-25%',
+  },
+  {
+    scrollTrigger: {
+      ...czSDRGTrigger,
+    },
+    translateY: '-1.59292%',
+    duration: 3,
+  },
+).fromTo(
+  '.heroImg3',
+  {
+    translateY: '15%',
+  },
+  {
     scrollTrigger: czSDRGTrigger,
+    translateY: '-15%',
+    duration: 3,
+  },
+)
+
+tl.from('.czSDRG', {
+  opacity: 0,
+  transform: 'translateZ(350px) translateZ(0px)',
+})
+  .to('.heroImg2 .czSDRG', czSDRGTo)
+  .to('.heroImg1 .czSDRG', czSDRGTo)
+  .to('.heroImg3 .czSDRG', czSDRGTo)
+// animation2
+gsap.fromTo(
+  '.lgvkDR',
+  {
+    opacity: 0,
+    transform: 'scale(0.85) rotateY(-15deg) translateZ(5px)',
+  },
+  {
+    scrollTrigger: {
+      trigger: '.lgvkDR',
+      start: 'top center',
+      snap: 0.5,
+      end: '+=100',
+      // scrub: true,
+    },
     opacity: 1,
-    transform: "none",
-    duration: 2,
-  };
-
-  tl.fromTo(
-    ".heroImg1",
-    {
-      translateY: "-25%",
-    },
-    {
-      scrollTrigger: {
-        ...czSDRGTrigger,
-      },
-      translateY: "-1.59292%",
-      duration: 3,
-    }
-  ).fromTo(
-    ".heroImg3",
-    {
-      translateY: "15%",
-    },
-    {
-      scrollTrigger: czSDRGTrigger,
-      translateY: "-15%",
-      duration: 3,
-    }
-  );
-
-  tl.from(".czSDRG", {
-    opacity: 0,
-    transform: "translateZ(350px) translateZ(0px)",
-  })
-    .to(".heroImg2 .czSDRG", czSDRGTo)
-    .to(".heroImg1 .czSDRG", czSDRGTo)
-    .to(".heroImg3 .czSDRG", czSDRGTo);
-  // animation2
+    transform: 'none',
+    duration: 5,
+  },
+)
+// animation3
+const imgs = gsap.utils.toArray('.imgsBox img')
+gsap.to(imgs, {
+  xPercent: -67 * (imgs.length - 1),
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.animation3',
+    pin: true, // 激活时固定触发器元件
+    start: 'top 30%',
+    scrub: 1,
+    snap: 1 / (imgs.length - 1), // 停止滚动后停留在特定的进度值
+    // base vertical scrolling on how wide the container is so it feels more natural.
+    end: () => '+=1000',
+  },
+})
+// animation4
+tl.to('.pannel', {
+  scrollTrigger: {
+    trigger: '.animation4',
+    start: '10% 100px',
+    end: '50px 20%',
+    scrub: true,
+    pin: true,
+  },
+  perspective: '0',
+  rotateX: '0deg',
+  duration: 4,
+})
+// animation5
+function animateFrom(elem, direction) {
+  direction = direction || 1
+  let x = 0
+  let y = direction * 100
+  if (elem.classList.contains('gs_reveal_fromLeft')) {
+    x = -100
+    y = 0
+  }
+  else if (elem.classList.contains('gs_reveal_fromRight')) {
+    x = 100
+    y = 0
+  }
+  elem.style.transform = `translate(${x}px, ${y}px)`
+  elem.style.opacity = '0'
   gsap.fromTo(
-    ".lgvkDR",
+    elem,
+    { x, y, autoAlpha: 0 },
     {
-      opacity: 0,
-      transform: "scale(0.85) rotateY(-15deg) translateZ(5px)",
+      duration: 1.25,
+      x: 0,
+      y: 0,
+      autoAlpha: 1,
+      ease: 'expo',
+      overwrite: 'auto',
     },
-    {
-      scrollTrigger: {
-        trigger: ".lgvkDR",
-        start: "top center",
-        snap: 0.5,
-        end: "+=100",
-        // scrub: true,
+  )
+}
+
+function hide(elem) {
+  gsap.set(elem, { autoAlpha: 0 })
+}
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.utils.toArray('.gs_reveal').forEach((elem) => {
+    hide(elem) // assure that the element is hidden when scrolled into view
+
+    ScrollTrigger.create({
+      trigger: elem,
+      // markers: true,
+      onEnter() {
+        animateFrom(elem, undefined)
       },
-      opacity: 1,
-      transform: "none",
-      duration: 5,
-    }
-  );
-  // animation3
-  const imgs = gsap.utils.toArray(".imgsBox img");
-  gsap.to(imgs, {
-    xPercent: -67 * (imgs.length - 1),
-    ease: "none",
+      onEnterBack() {
+        animateFrom(elem, -1)
+      },
+      onLeave() {
+        hide(elem)
+      }, // assure that the element is hidden when scrolled into view
+    })
+  })
+})
+// animation6
+tl.to('.home-screen-card1', {
+  scrollTrigger: {
+    trigger: '.cloud-platform-panel',
+    start: 'bottom 80%',
+    end: '+=100px', // 滚动超过start点100px结束
+    scrub: true,
+  },
+  opacity: 0,
+  transform: 'translate(0px, -440px)',
+  duration: 3,
+})
+  .to('.home-screen-card2', {
     scrollTrigger: {
-      trigger: ".animation3",
-      pin: true, // 激活时固定触发器元件
-      start: "top 30%",
-      scrub: 1,
-      snap: 1 / (imgs.length - 1), // 停止滚动后停留在特定的进度值
-      // base vertical scrolling on how wide the container is so it feels more natural.
-      end: () => "+=1000",
-    },
-  });
-  // animation4
-  tl.to(".pannel", {
-    scrollTrigger: {
-      trigger: ".animation4",
-      start: "10% 100px",
-      end: "50px 20%",
-      scrub: true,
-      pin: true,
-    },
-    perspective: "0",
-    rotateX: "0deg",
-    duration: 4,
-  });
-  // animation5
-  function animateFrom(elem, direction) {
-    direction = direction || 1;
-    let x = 0;
-    let y = direction * 100;
-    if (elem.classList.contains("gs_reveal_fromLeft")) {
-      x = -100;
-      y = 0;
-    } else if (elem.classList.contains("gs_reveal_fromRight")) {
-      x = 100;
-      y = 0;
-    }
-    elem.style.transform = `translate(${x}px, ${y}px)`;
-    elem.style.opacity = "0";
-    gsap.fromTo(
-      elem,
-      { x, y, autoAlpha: 0 },
-      {
-        duration: 1.25,
-        x: 0,
-        y: 0,
-        autoAlpha: 1,
-        ease: "expo",
-        overwrite: "auto",
-      }
-    );
-  }
-
-  function hide(elem) {
-    gsap.set(elem, { autoAlpha: 0 });
-  }
-  document.addEventListener("DOMContentLoaded", () => {
-    gsap.utils.toArray(".gs_reveal").forEach((elem) => {
-      hide(elem); // assure that the element is hidden when scrolled into view
-
-      ScrollTrigger.create({
-        trigger: elem,
-        // markers: true,
-        onEnter() {
-          animateFrom(elem, undefined);
-        },
-        onEnterBack() {
-          animateFrom(elem, -1);
-        },
-        onLeave() {
-          hide(elem);
-        }, // assure that the element is hidden when scrolled into view
-      });
-    });
-  });
-  // animation6
-  tl.to(".home-screen-card1", {
-    scrollTrigger: {
-      trigger: ".cloud-platform-panel",
-      start: "bottom 80%",
-      end: "+=100px", // 滚动超过start点100px结束
+      trigger: '.cloud-platform-panel',
+      start: 'bottom 76%',
+      end: '+=100px', // 滚动超过start点100px结束
       scrub: true,
     },
     opacity: 0,
-    transform: "translate(0px, -440px)",
+    transform: 'translate(0px, -440px)',
     duration: 3,
   })
-    .to(".home-screen-card2", {
-      scrollTrigger: {
-        trigger: ".cloud-platform-panel",
-        start: "bottom 76%",
-        end: "+=100px", // 滚动超过start点100px结束
-        scrub: true,
-      },
-      opacity: 0,
-      transform: "translate(0px, -440px)",
-      duration: 3,
-    })
-    .to(".home-screen-card3", {
-      scrollTrigger: {
-        trigger: ".cloud-platform-panel",
-        start: "bottom 72%",
-        end: "+=100px", // 滚动超过start点100px结束
-        scrub: true,
-      },
-      transform: "translate(0px, -120px)",
-      duration: 2,
-    });
+  .to('.home-screen-card3', {
+    scrollTrigger: {
+      trigger: '.cloud-platform-panel',
+      start: 'bottom 72%',
+      end: '+=100px', // 滚动超过start点100px结束
+      scrub: true,
+    },
+    transform: 'translate(0px, -120px)',
+    duration: 2,
+  })
 </script>

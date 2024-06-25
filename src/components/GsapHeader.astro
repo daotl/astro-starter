@@ -38,24 +38,25 @@ import Menu from '~/components/Menu.vue';
 </style>
 
 <script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/all";
-  gsap.registerPlugin(ScrollTrigger);
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-  // const tl = gsap.timeline()
-  gsap.fromTo(
-    ".jGxyZq",
-    { height: "0" },
-    {
-      scrollTrigger: {
-        trigger: ".menu",
-        start: "top 0.1%",
-        end: "+=80px",
-        // markers: true,
-        scrub: true,
-      },
-      height: "80px",
-      translateY: "0px",
-    }
-  );
+gsap.registerPlugin(ScrollTrigger)
+
+// const tl = gsap.timeline()
+gsap.fromTo(
+  '.jGxyZq',
+  { height: '0' },
+  {
+    scrollTrigger: {
+      trigger: '.menu',
+      start: 'top 0.1%',
+      end: '+=80px',
+      // markers: true,
+      scrub: true,
+    },
+    height: '80px',
+    translateY: '0px',
+  },
+)
 </script>
